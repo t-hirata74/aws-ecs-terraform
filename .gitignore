@@ -1,0 +1,13 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Terraform variables
+*.tfvars
+*.tfvars.json
+
+# Terraform module directories
+.terraform/
+
+# Exclude lock file to ensure consistency
+!.terraform.lock.hcl
