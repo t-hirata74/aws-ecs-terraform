@@ -3,12 +3,12 @@ module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
   # こちらのコードで VPC の名前を設定しています。今回は、ルートディレクトリ（カレントディレクトリ）の名前にしました。
-  name = "aws-ecs-terraform"
+  name = local.name
   # VPC で使用するプライベートネットワークの IP アドレスの範囲は 10.0.0.0/16 とします。
   cidr = "10.0.0.0/16"
 
   # 二つのアベイラビリティゾーン（ap-northeast-1a と ap-northeast-1c）のそれぞれに Public サブネットと Private サブネットを用意します。
-  azs             = ["ap-northeast-1a", "ap-northeast-1c"]
+  azs             = ["${local.region}a", "${local.region}c"]
   public_subnets  = ["10.0.11.0/24", "10.0.12.0/24"]
   private_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
 
