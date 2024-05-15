@@ -8,14 +8,14 @@ terraform {
     encrypt        = true
   }
 
- required_providers {
-   aws = {
-     source  = "hashicorp/aws"
-     version = "~> 4.0"
-   }
- }
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
 
- provider "aws" {
-   region = local.region
- }
+  provider "aws" {
+    region = local.region
+  }
 }

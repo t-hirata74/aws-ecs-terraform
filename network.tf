@@ -20,7 +20,7 @@ module "vpc" {
   enable_dns_hostnames = true
 
   # VPC 内のリソースにパブリック DNS ホスト名を自動的に割り当ててくれます。
-  enable_dns_support   = true
+  enable_dns_support = true
 
   # インターネットゲートウェイは、デフォルトで生成されますが、NAT ゲートウェイを作成するためには、明示的に記述する必要があります。下記のように記述することで、各 Public サブネットに一つずつ NAT ゲートウェイが配置されます。
   enable_nat_gateway = true
