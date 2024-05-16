@@ -2,6 +2,7 @@ resource "aws_security_group" "alb" {
   name        = "${local.app}-alb"
   description = "For ALB."
   vpc_id      = module.vpc.vpc_id
+  # ingress はインバウンド通信（内向き）を制御します。
   ingress {
     description = "Allow HTTP from ALL."
     from_port   = 80
@@ -9,10 +10,12 @@ resource "aws_security_group" "alb" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  # egress はアウトバウンド通信（外向き）を制御します。
   egress {
     description = "Allow all to outbound."
     from_port   = 0
     to_port     = 0
+    # Application Load Balancer から出ていく通信を全て許可したいので、protocol = "-1" としています。
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
